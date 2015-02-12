@@ -36,12 +36,18 @@ var createScoreObject = function(){
 function isInteger(x) {
   return x % 1 === 0;
 }
-  //
-  //
-  // A, E, I, O, U, L, N, R, S, T       1
-  // D, G                               2
-  // B, C, M, P                         3
-  // F, H, V, W, Y                      4
-  // K                                  5
-  // J, X                               8
-  // Q, Z                               10
+
+$(function(){
+  $("#scrabbler").submit(function(event){
+    word = $("#scrabble_word").val();
+    wordScore = scrabbleScore(word);
+    $(".results").fadeOut("fast");
+    $("#word").text(word);
+    $("#score").text(wordScore);
+
+    $(".results").toggle(function(){
+      $(this).fadeIn(700);
+    });
+    event.preventDefault();
+  });
+});

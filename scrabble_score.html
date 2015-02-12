@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/jquery-1.11.2.js"></script>
+    <script src="./js/scripts.js"></script>
+    <title>Scrabble Score</title>
+  </head>
+  <body>
+    <div class = "container">
+      <h1>Scrabbler</h1>
+
+      <div class="well">
+        <form id="scrabbler">
+          <div class = "control-group">
+            <label for="scrabble_word">Enter a word to calculate Scrabble Score</label>
+            <input type="text" id="scrabble_word">
+          </div>
+          <button type="submit" class="btn btn-danger">Submit</button>
+        </form>
+      </div>
+
+      <div class="well results">
+          <p>
+            Word: <span id="word"></span> Score: <span id="score"></span>
+          </p>
+      </div>
+    </div>
+
+  </body>
+</html>
