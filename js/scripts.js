@@ -69,3 +69,18 @@ var Game = {
   }
 }
 
+$(function(){
+  $('#new_game').click(function(){
+    newGame = Object.create(Game);
+    newGame.setUp();
+    $('.player_one_name').text(newGame.playerOne.username)
+    $('#player_one_score').text(newGame.playerOne.totalScore)
+    $('.player_two_name').text(newGame.playerTwo.username)
+    $('#player_two_score').text(newGame.playerTwo.totalScore)
+    $('.player-squares').show();
+
+   });
+});
+
+
+

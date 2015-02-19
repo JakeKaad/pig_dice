@@ -1,0 +1,8 @@
+#player_two_turn_area {
+	display:none;
+}
+
+.player-squares {
+	display: none;
+	min-height: 300px;
+}
