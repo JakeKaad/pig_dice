@@ -82,11 +82,11 @@ $(function(){
       if (playerOneTurn.stillPlayerTurn) {
         $('#player_one_turn_score').text(playerOneTurn.score);
       } else {
-        playerOneTurn.stillPlayerTurn = true
-        layerOneTurn.score = 0;
-        $('#player_one_turn_score').text(0)
         $('#player_one_turn_area').hide();
         $('#player_two_turn_area').show();
+        playerOneTurn.stillPlayerTurn = true
+        playerOneTurn.score = 0;
+        $('#player_one_turn_score').text(0);
       }
 
       if (playerOne.checkForWinner(playerOneTurn.score)) {
@@ -141,6 +141,19 @@ $(function(){
         $('#player_two_turn_area').hide();
         $('#player_one_turn_area').show();
       });
+    });
+
+    $('#new_game').click(function(){
+      $("#announce_winner").hide();
+      $('#table').show();
+      $('#player_one_score').text('0');
+      $('#player_two_score').text('0');
+      $('#player_one_last_roll').text('');
+      $('#player_two_last_roll').text('');
+      $('#player_one_turn_score').text('0');
+      $('#player_two_turn_score').text('0');
+      $('#player_one_turn_area').show();
+      $('#player_two_turn_area').hide();
     });
   });
 });
