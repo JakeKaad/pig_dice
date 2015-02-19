@@ -47,3 +47,60 @@ describe("Turn", function(){
     });
   });
 });
+
+describe("Player", function() {
+  describe("updateScore", function() {
+    it("adds score for the round to total score", function() {
+      var playerTurn = Object.create(Turn);
+      var player = Object.create(Player);
+      player.updateScore(2)
+      expect(player.totalScore).to.eq(2)
+    });
+  });
+
+  describe("checkForWinner", function(){
+    it ("declares a winner when player score and total score is equal to or greater than 100", function(){
+      var playerTurn = Object.create(Turn);
+      var player = Object.create(Player);
+      playerTurn.score = 50
+      player.totalScore = 51
+      expect(player.checkForWinner(playerTurn.score)).to.be.true
+    });
+  });
+
+  describe("passTurn", function() {
+    it("sets turn to false if 'turn over'", function() {
+      var playerTurn = Object.create(Turn);
+      var player = Object.create(Player);
+      player.turn = true;
+      player.passTurn("turn over")
+      expect(player.turn).to.be.false
+    });
+
+    it("keeps player turn on true if 'roll again'", function(){
+      var playerTurn = Object.create(Turn);
+      var player = Object.create(Player);
+      player.turn = true;
+      player.passTurn("roll again")
+      expect(player.turn).to.be.true
+    });
+  });
+});
+
+describe("Game", function(){
+  describe("initializeGame", function(){
+    it("creates 2 player objects", function(){
+      var newGame = Object.create(Game);
+      expect(newGame.playerOne).to.have.property("totalScore")
+      expect(newGame.playerTwo).to.have.property("totalScore")
+    });
+  });
+
+  describe("setUp", function(){
+    it("sets player 1 turn to true", function() {
+      var newGame = Object.create(Game);
+      newGame.setUp();
+      expect(newGame.playerOne.turn).to.be.true
+    });
+  });
+});
