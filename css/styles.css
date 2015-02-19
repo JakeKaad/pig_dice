@@ -4,5 +4,9 @@
 
 .player-squares {
 	display: none;
-	min-height: 300px;
+	min-height: 340px;
+}
+
+.pass_buttons {
+	display: none;
 }

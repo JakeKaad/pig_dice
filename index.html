@@ -19,9 +19,10 @@
         <h5>Last Roll: <span id='player_one_last_roll'></span></h5>
         <div id='player_one_turn_area' class='turn_box well'>
           <h4><span class='player_one_name'></span>'s turn</h4>
-          <h4>Turn score: <span id='player_one_turn_score'></span></h4>
+          <h4>Turn score: <span id='player_one_turn_score'>0</span></h4>
           <p id='player_one_dice'></p>
-          <button class='btn btn-warning' id='player_one_button'>Roll Dice</button> 
+          <button class='btn btn-success' id='player_one_button'>Roll Dice</button>
+          <button class='btn btn-warning pass_buttons' id='player_one_pass_button'>Pass and Keep</button>
         </div>
       </div>
 
@@ -34,6 +35,7 @@
           <h4>Turn score: <span id='player_two_turn_score'></span></h4>
           <p id='player_two_dice'></p>
           <button class='btn btn-warning' id='player_two_button'>Roll Dice</button> 
+          <button class='btn btn-warning pass_buttons' id='player_two_pass_button'>Pass and Keep</button>
         </div>
       </div>
 
