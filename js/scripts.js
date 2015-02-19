@@ -25,7 +25,13 @@ var Player = {
     this.totalScore += turnScore;
   },
   checkForWinner: function(turnScore) {
-    return (this.totalScore + turnScore) >= 100
+    if ((this.totalScore + turnScore) >= 100) {
+      this.totalScore += turnScore
+      return true;
+    } else {
+      return false;
+    }
+
   },
   passTurn: function(result) {
     if (result === 'turn over') {
@@ -68,6 +74,7 @@ $(function(){
     $('.player-squares').show();
 
     var playerOneTurn = playerOne.takeTurn();
+    var playerTwoTurn = playerTwo.takeTurn();
     $('#player_one_button').click(function(){
       var pOneRoll = playerOne.rollDice();
       $('#player_one_last_roll').text(pOneRoll);
@@ -75,6 +82,7 @@ $(function(){
       if (playerOneTurn.stillPlayerTurn) {
         $('#player_one_turn_score').text(playerOneTurn.score);
       } else {
+        playerOneTurn.stillPlayerTurn = true
         $('#player_one_turn_area').hide();
         $('#player_two_turn_area').show();
       }
@@ -83,9 +91,35 @@ $(function(){
       $('#player_one_pass_button').click(function(){
         playerOne.updateScore(playerOneTurn.score);
         $('#player_one_score').text(playerOne.totalScore);
-        playerTwo.takeTurn();
+        playerOneTurn.score = 0;
+        playerOneTurn.stillPlayerTurn = true;
+        $('#player_one_turn_score').text(playerOneTurn.score)
         $('#player_one_turn_area').hide();
         $('#player_two_turn_area').show();
+      });
+    });
+
+    $('#player_two_button').click(function(){
+      var pTwoRoll = playerTwo.rollDice();
+      $('#player_two_last_roll').text(pTwoRoll);
+      playerTwoTurn.updateScore(pTwoRoll);
+      if (playerTwoTurn.stillPlayerTurn) {
+        $('#player_two_turn_score').text(playerTwoTurn.score);
+      } else {
+        $('#player_two_turn_area').hide();
+        $('#player_one_turn_area').show();
+        playerTwoTurn.stillPlayerTurn = true
+      }
+
+      $('#player_two_pass_button').show();
+      $('#player_two_pass_button').click(function(){
+        playerTwo.updateScore(playerTwoTurn.score);
+        $('#player_two_score').text(playerTwo.totalScore);
+        playerTwoTurn.score = 0;
+        playerTwoTurn.stillPlayerTurn = true;
+        $('#player_two_turn_score').text(playerTwoTurn.score);
+        $('#player_two_turn_area').hide();
+        $('#player_one_turn_area').show();
       });
     });
   });
