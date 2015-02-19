@@ -5,10 +5,33 @@
     <link rel="stylesheet" href="./css/styles.css">
     <script src="./js/jquery-1.11.2.js"></script>
     <script src="./js/scripts.js"></script>
-    <title></title>
+    <title>Pig Dice</title>
   </head>
   <body>
     <div class = "container">
+    <h1>Pig Dice</h1>
+      <div class="player-squares well col-md-5">
+        <h3><span class='player_one_name'></span>Name</h3>
+        <h4>Total Score: <span id='player_one_score'></span></h4>
+        <div id='player_one_turn_area' class='turn_box well'>
+          <h4><span class='player_one_name'></span>'s turn</h4>
+          <h4>Turn score: <span id='player_one_turn_score'></span></h4>
+          <p id='player_one_dice'></p>
+          <button class='btn btn-warning' id='player_one_button'>Roll Dice</button> 
+        </div>
+      </div>
+
+      <div class="player-squares well col-md-5">
+        <h3><span class='player_two_name'></span>Name</h3>
+        <h4>Total Score: <span id='player_two_score'></span></h4>
+        <div id='player_two_turn_area' class='turn_box well'>
+          <h4><span class='player_two_name'></span>'s turn</h4>
+          <h4>Turn score: <span id='player_two_turn_score'></span></h4>
+          <p id='player_two_dice'></p>
+          <button class='btn btn-warning' id='player_two_button'>Roll Dice</button> 
+        </div>
+      </div>
+
     </div>
   </body>
 </html>

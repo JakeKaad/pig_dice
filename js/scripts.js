@@ -1,8 +1,3 @@
-// game - turn order decision, passing turns, initialize the game,
-// players - take turns, name needs to be assigned by user,
-// dice - return a random value between 1-6, save that value
-// score - total, adding turn score to score total
-// turns - score default 0, consecutive rolling of dice and adding value to score, over if rolled 1 or users passes
 
 var Dice = {
   roll: function() {
@@ -74,28 +69,3 @@ var Game = {
   }
 }
 
-newGame = Object.create(Game)
-newGame.setUp();
-newGame.play();
-// debugger;
-// play -> turn1, checkwinner, turn2, checkwinner
-
-// engine.playerTurn
-// newturn.updateScore
-// if upDateScore ="roll again"
-// newturn.updateScore
-// else
-//
-// var side = dice.roll
-//
-//
-// var Turn = {
-//   score: 0
-// }
-//
-// var Player = {
-//   totalScore: 0
-// }
-//
-// turn.player = player1
-// turn.score += dice.roll
